@@ -77,6 +77,12 @@ func (c *RedirectClient) HandleConn(conn net.Conn) {
 	err = transport(conn, cc)
 	if err != nil {
 		fmt.Printf("[!] transport error: %v\n", err)
+		//if !strings.Contains(err.Error(), "127.0.0.1:") {
+		//	ProxyURL = DefaultProxy
+		//}
+		//if strings.Contains(err.Error(), "connection reset by peer") {
+		//	ProxyURL = DefaultProxy
+		//}
 	}
 }
 

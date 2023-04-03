@@ -84,6 +84,7 @@ func checkProxyWithCheckURL(proxyURL string, checkURL string) (timeout time.Dura
 		return 0, false
 	}
 	defer resp.Body.Close()
+	io.ReadAll(resp.Body)
 	since := time.Since(startTime)
 
 	// TODO: support regex
